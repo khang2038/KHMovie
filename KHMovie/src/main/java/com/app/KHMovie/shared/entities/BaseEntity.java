@@ -16,19 +16,18 @@ import java.util.UUID;
 @MappedSuperclass
 public class BaseEntity implements Serializable {
     @Id
-    @GeneratedValue
-    @Column(columnDefinition = "BINARY(16)", updatable = false, nullable = false)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String createdBy;
     private String updatedBy;
 
     @CreationTimestamp
-    @Column(name = "created_at", updatable = false)
+    @Column(name = "created_at",columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date createdAt;
 
     @UpdateTimestamp
-    @Column(name = "updated_at")
+    @Column(name = "updated_at",columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date updatedAt;
 
     @Override
