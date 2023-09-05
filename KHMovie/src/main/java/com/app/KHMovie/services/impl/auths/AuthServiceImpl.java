@@ -6,7 +6,6 @@ import com.app.KHMovie.entity.User;
 import com.app.KHMovie.payload.dtos.auths.LoginRequest;
 import com.app.KHMovie.payload.dtos.auths.SignupRequest;
 import com.app.KHMovie.payload.response.JwtResponse;
-import com.app.KHMovie.payload.response.MessageResponse;
 import com.app.KHMovie.repositories.RefreshTokenRepository;
 import com.app.KHMovie.repositories.RoleRepository;
 import com.app.KHMovie.repositories.UserRepository;
@@ -20,7 +19,6 @@ import com.app.KHMovie.utils.JwtUtils;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -50,8 +48,8 @@ public class AuthServiceImpl implements AuthService {
     @Autowired
     JwtUtils jwtUtils;
 
-    @Value("")
-    private Long refreshTokenDurationMs;
+    @Value("${jwtRefreshExpirationMs}")
+    private Long refreshTokenDurationMs ;
 
     @Autowired
     private RefreshTokenRepository refreshTokenRepository;

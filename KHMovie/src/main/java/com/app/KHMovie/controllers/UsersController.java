@@ -4,6 +4,7 @@ import com.app.KHMovie.entity.User;
 import com.app.KHMovie.repositories.UserRepository;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,6 +18,7 @@ public class UsersController {
 	HikariDataSource dataSource;
 
 	@GetMapping("/{id}")
+	@PreAuthorize("hasRole('ROLE_USER')")
 	public User getUserById (@PathVariable Long id) {
 		return userRepository.findById(id).get();
 	}
