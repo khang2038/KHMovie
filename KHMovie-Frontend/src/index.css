@@ -1,3 +1,71 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+}
+
+.textNavLeft {
+  @apply text-white opacity-60 font-normal text-base;
+}
+.itemNavLeft {
+  @apply items-center flex cursor-pointer;
+}
+
+.textNavRight {
+  @apply text-white font-[11px] font-normal leading-3;
+}
+
+.itemNavRight {
+  @apply flex flex-col items-center justify-center cursor-pointer;
+}
+
+.btnNav {
+  @apply w-[82px] h-[36px] items-center justify-center;
+}
+
+.btnNav:hover .filter-green {
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg)
+    brightness(90%) contrast(119%);
+}
+
+.itemNavRight:hover,
+.iconSearch:hover {
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg)
+    brightness(90%) contrast(119%);
+}
+
+.nav-overlay {
+  @apply hidden fixed z-[1] inset-0 bg-black opacity-30;
+}
+
+.nav-overlay {
+  animation: fadeIn linear 0.2s;
+}
+
+.nav__input:checked ~ .nav-overlay {
+  display: block;
+}
+
+.nav__input:checked ~ .nav-mobile {
+  transform: translateX(0%);
+}
+
+.nav-mobile {
+  @apply transition-transform duration-200 -translate-x-full fixed z-[1] top-0 left-0 bottom-0 bg-white w-[270px] max-w-full;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.3;
+  }
+}
+
+.container-footer {
+  @apply flex max-w-[1920px] h-[450px] lg:h-[530px]  pt-[33px] pb-[40px] items-center flex-col bg-[#0A0C0F] border-t border-[#2D2F34];
+}
