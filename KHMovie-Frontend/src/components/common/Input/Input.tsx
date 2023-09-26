@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { InputHTMLAttributes } from 'react';
 
-interface IInputProps {
-  type?: 'text' | 'password' | 'email' | 'number'
-  value?: string
-  placeholder?: string
-  className?: string
-  name?: string
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-}
-const Input = ({ type = 'text', value, placeholder = '', onChange, className, name, ...passProps }: IInputProps) => {
+interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {}
+const Input: React.FC<IInputProps> = (props) => {
+  const {
+    type = 'text',
+    value,
+    placeholder = '',
+    onChange,
+    className,
+    name,
+    ...passProps
+  } = props;
   return (
     <input
       type={type}
@@ -20,7 +22,7 @@ const Input = ({ type = 'text', value, placeholder = '', onChange, className, na
       required
       className={`appearance-none border-2 border-primary text-gray-950 placeholder:text-slate-gray leading-tight focus:outline-none focus:shadow-outline ${className}`}
     />
-  )
-}
+  );
+};
 
-export default Input
+export default Input;

@@ -1,13 +1,9 @@
-import React from 'react'
+import React, { ButtonHTMLAttributes } from 'react';
 
-interface IButtonProps {
-  children: React.ReactNode
-  className?: string
-  type?: 'button' | 'submit' | 'reset'
-  onClick?: () => void
-}
+interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
-const Button: React.FC<IButtonProps> = ({ children, onClick, className, type, ...rest }: IButtonProps) => {
+const Button: React.FC<IButtonProps> = (props: IButtonProps) => {
+  const { children, onClick, className, type, ...rest } = props;
   return (
     <button
       type={type}
@@ -17,7 +13,7 @@ const Button: React.FC<IButtonProps> = ({ children, onClick, className, type, ..
     >
       {children}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;
