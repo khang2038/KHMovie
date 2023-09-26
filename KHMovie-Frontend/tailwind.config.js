@@ -8,14 +8,25 @@ export default {
   ],
   theme: {
     extend: {},
+    screens: {
+      '2xl': {'max': '1680px'},
+
+      'xl': {'max': '1279px'},
+
+      'lg': {'max': '1023px'},
+
+      'md': {'max': '767px'},
+
+      'sm': {'max': '639px'},  
+    },
   },
   plugins: [
     plugin(function ({ addComponents}) {
       addComponents({
         ".container": {
-          maxWidth: "1632px",
-          paddingLeft: "56",
-          paddingRight: "56",
+          maxWidth: "1920px",
+          paddingLeft: "56px",
+          paddingRight: "56px",
         },
       });
     }),

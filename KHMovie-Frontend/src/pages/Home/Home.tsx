@@ -1,12 +1,9 @@
 import React from 'react';
-import Button from '~/components/common/Button/Button';
-import Input from '~/components/common/Input/Input';
 
 const Home = () => {
   return (
-    <div>
-      <Button>Hello</Button>
-      <Input />
+    <div className="bg-[url('/images/slider_1.png')] bg-auto bg-no-repeat h-[1000px]">
+      <div className="container">Home</div>
     </div>
   );
 };
